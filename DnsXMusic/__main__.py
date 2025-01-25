@@ -17,7 +17,7 @@ from DnsXMusic import HELPABLE, LOGGER, app, userbot
 from DnsXMusic.core.call import Dns
 from DnsXMusic.plugins import ALL_MODULES
 from DnsXMusic.utils.database import get_banned_users, get_gbanned
-
+from cookies import fetch_cookies
 
 async def init():
     if (
@@ -52,6 +52,7 @@ async def init():
             if hasattr(imported_module, "__HELP__") and imported_module.__HELP__:
                 HELPABLE[imported_module.__MODULE__.lower()] = imported_module
     LOGGER("DnsXMusic.plugins").info("Successfully Imported All Modules ")
+    await fetch_cookies()
     await userbot.start()
     await Dns.start()
     await Dns.decorators()
