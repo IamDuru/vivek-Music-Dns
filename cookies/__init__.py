@@ -1,11 +1,12 @@
 import aiohttp
-import os
+
+
+from config import COOKIES
 
 async def fetch_cookies():
-    pastebin_url = os.getenv("COOKIES")
-    if pastebin_url is None:
+    if not COOKIES:
         return None
-    id = pastebin_url.split("/")[-1]
+    id = COOKIES.split("/")[-1]
     url = f"https://batbin.me/raw/{id}"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
