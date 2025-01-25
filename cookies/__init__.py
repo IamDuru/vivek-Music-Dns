@@ -14,6 +14,6 @@ async def fetch_cookies():
                 with open("cookies/cookies.txt", "w") as file:
                     file.write(raw_content)
                 
-                print(f"Content successfully written to {output_file}")
+                print(f"Content successfully written")
             else:
                 print(f"Failed to fetch the URL. Status code: {response.status}")
