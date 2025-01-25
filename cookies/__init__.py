@@ -1,6 +1,5 @@
 import aiohttp
 import os
-https://batbin.me/sensitiveness/raw
 
 async def fetch_cookies():
     pastebin_url = os.getenv("COOKIES")
